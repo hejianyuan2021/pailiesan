@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.pailiesan"
+    namespace = "com.pl3.app"
     compileSdk = 34
     defaultConfig {
         applicationId = "com.example.pailiesan"
