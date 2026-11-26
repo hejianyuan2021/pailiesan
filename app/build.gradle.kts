@@ -33,8 +33,10 @@ android {
 
 dependencies {
     implementation("androidx.core:core-ktx:1.13.1")
-    implementation("androidx.appcompat:appcompat:1.7.0")
-    implementation("com.google.android.material:material:1.12.0")
+    // 降级 appcompat 以兼容 SDK 33 (1.7.0 需 34)
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    // 降级 material 以兼容 SDK 33 (1.12.0 需 34)
+    implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation("androidx.viewpager2:viewpager2:1.1.0")
