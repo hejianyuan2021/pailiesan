@@ -21,14 +21,14 @@ object RecommendEngine {
         val rnd = Random(System.currentTimeMillis())
         val result = linkedSetOf<Pick>()
 
-        // 策略1：3 位各取最热号，组合
+        // 策略：各位置取热号/冷号混合，凑足 n 组不重复
         var guard = 0
-        while (result.size < n && guard++ < 200) {
+        while (result.size < n && guard++ < 500) {
             val d = List(3) { pos ->
                 val pool = if (rnd.nextDouble() < 0.6) stats.hot[pos] else stats.cold[pos]
-                pool.random(rnd)
+                if (pool.isEmpty()) rnd.nextInt(10) else pool.random(rnd)
             }
-            val score = d.sumOf { stats.freq[0].size.let { 0 } + scoreOf(it, stats) }
+            val score = scoreOf(d, stats)
             val pick = Pick(
                 num = d.joinToString(" "),
                 digits = d,
@@ -41,13 +41,15 @@ object RecommendEngine {
         return result.sortedByDescending { it.score }.take(n)
     }
 
-    // 评分：高频 + 低遗漏
-    private fun scoreOf(n: Int, stats: com.pl3.app.algo.stats.Stats): Int {
-        val pos0 = 0
-        // 取三位平均频次与遗漏作为评分依据
-        val avgFreq = (stats.freq[0][n] + stats.freq[1][n] + stats.freq[2][n]) / 3
-        val avgMiss = (stats.miss[0][n] + stats.miss[1][n] + stats.miss[2][n]) / 3
-        return avgFreq + (30 - avgMiss.coerceAtMost(30)) / 3
+    // 评分：高频 + 低遗漏（纯 Int 返回，修复类型错误）
+    private fun scoreOf(d: List<Int>, stats: com.pl3.app.algo.stats.Stats): Int {
+        var s = 0
+        d.forEachIndexed { idx, n ->
+            val f = stats.freq[idx][n] ?: 0
+            val m = stats.miss[idx][n] ?: 0
+            s += f + (30 - m.coerceAtMost(30)) / 3
+        }
+        return s
     }
 
     private fun buildReason(d: List<Int>, stats: com.pl3.app.algo.stats.Stats): String {
