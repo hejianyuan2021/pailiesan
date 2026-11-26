@@ -4,10 +4,10 @@ plugins {
 }
 
 android {
-    namespace = "com.pl3.app"
+    namespace = "$NAMESPACE"
     compileSdk = 34
     defaultConfig {
-        applicationId = "com.pl3.app"
+        applicationId = "$NAMESPACE"
         minSdk = 21
         targetSdk = 34
         versionCode = 1
