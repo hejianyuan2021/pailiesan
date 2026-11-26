@@ -1,7 +1,6 @@
 package com.pl3.app.net
-import android.graphics.Color
 import android.graphics.drawable.Drawable
-import android.graphics.drawable.ColorDrawable
+import android.graphics.Color
 
 class RemoteDataSource : DataSource {
     private val client = OkHttpClient.Builder()

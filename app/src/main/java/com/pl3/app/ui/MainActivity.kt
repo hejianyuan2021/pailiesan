@@ -6,11 +6,9 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 
-
 class MainActivity : AppCompatActivity() {
     // 若原代码有 RemoteDataSource 调用，保留；此处兜底声明避免 net 报错
     private lateinit var remoteDataSource: RemoteDataSource
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -18,11 +16,9 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.title = "PaiLieSan"
         remoteDataSource = RemoteDataSource()
     }
-
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         return super.onCreateOptionsMenu(menu)
     }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return super.onOptionsItemSelected(item)
     }
