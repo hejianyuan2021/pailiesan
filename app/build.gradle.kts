@@ -4,6 +4,7 @@ plugins {
 }
 
 android {
+    namespace = "com.example.pailiesan"
     compileSdk = 33
     defaultConfig {
         applicationId = "com.example.pailiesan"
@@ -28,8 +29,6 @@ android {
     buildFeatures {
         viewBinding = true
     }
-    // 彻底禁用脱糖（防 D8 崩溃，minSdk 21 基本够用，缺 API 再议）
-    // coreLibraryDesugaringEnabled = false 
 }
 
 dependencies {
@@ -40,6 +39,5 @@ dependencies {
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation("androidx.viewpager2:viewpager2:1.1.0")
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
-    // 协程降级到 1.6.4（适配 Kotlin 1.7.20）
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
 }
