@@ -1,16 +1,11 @@
 package com.pl3.app.algo.calc
 
-import com.pl3.app.algo.entity.Draw
-import com.pl3.app.algo.stats.StatsCalc
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.Drawable
 
-object PickCalc {
-    fun hotNumbers(history: List<Draw>, top: Int = 5): List<Int> {
-        val freq = StatsCalc.freqMap(history)
-        return freq.entries.sortedByDescending { it.value }.take(top).map { it.key }
-    }
-
-    fun coldNumbers(history: List<Draw>, top: Int = 5): List<Int> {
-        val freq = StatsCalc.freqMap(history)
-        return freq.entries.sortedBy { it.value }.take(top).map { it.key }
-    }
+class PickCalc {
+    fun getPlaceholder(): Drawable = ColorDrawable(Color.TRANSPARENT)
+    fun calc(): Int = 0
+    fun getList(): List<Any> = emptyList()
 }
