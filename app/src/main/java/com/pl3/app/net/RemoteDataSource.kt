@@ -1,13 +1,9 @@
+package com.pl3.app.net
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
-package com.pl3.app.net
 
-import com.pl3.app.algo.entity.ColorDrawable
-import com.pl3.app.data.DataSource
-import okhttp3.OkHttpClient
-import okhttp3.Request
-import java.util.concurrent.TimeUnit
+
 
 class RemoteDataSource : DataSource {
     private val client = OkHttpClient.Builder()

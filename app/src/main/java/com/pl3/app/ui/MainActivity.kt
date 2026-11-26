@@ -1,12 +1,8 @@
-import com.pl3.app.R
 package com.pl3.app.ui
-
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
-import com.pl3.app.algo.recommend.RecommendEngine
+import com.pl3.app.R
 import com.pl3.app.net.RemoteDataSource
-import kotlinx.coroutines.launch
+
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
