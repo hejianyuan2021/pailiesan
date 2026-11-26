@@ -32,10 +32,10 @@ android {
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.13.1")
-    // 降级 appcompat 以兼容 SDK 33 (1.7.0 需 34)
+    // 降级 core-ktx 到 1.12.0 (1.13.x 强制要求 SDK 34)
+    implementation("androidx.core:core-ktx:1.12.0")
+    // 保留兼容 SDK 33 的 appcompat 和 material
     implementation("androidx.appcompat:appcompat:1.6.1")
-    // 降级 material 以兼容 SDK 33 (1.12.0 需 34)
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
