@@ -1,8 +1,22 @@
 buildscript {
     repositories {
-        google()
         mavenCentral()
+        google()
+        maven { url = uri("https://maven.aliyun.com/repository/public") }
+        maven { url = uri("https://maven.aliyun.com/repository/google") }
         maven { url = uri("https://jitpack.io") }
+    }
+    configurations.all {
+        resolutionStrategy {
+            force("org.jetbrains.kotlin:kotlin-stdlib:1.7.20")
+            force("org.jetbrains.kotlin:kotlin-stdlib-common:1.7.20")
+            force("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.20")
+            force("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.20")
+            force("org.jetbrains.kotlin:kotlin-reflect:1.7.20")
+            // 强制 jsr305/javawriter 版本防传递冲突
+            force("com.google.code.findbugs:jsr305:3.0.2")
+            force("com.squareup:javawriter:2.5.0")
+        }
     }
     dependencies {
         classpath("com.android.tools.build:gradle:7.4.2")
@@ -11,18 +25,17 @@ buildscript {
 }
 allprojects {
     repositories {
-        google()
         mavenCentral()
+        google()
+        maven { url = uri("https://maven.aliyun.com/repository/public") }
+        maven { url = uri("https://maven.aliyun.com/repository/google") }
         maven { url = uri("https://jitpack.io") }
     }
-    // 终极止血：强制所有 kotlin 相关依赖降到 1.7.20，防传递依赖拉高
     configurations.all {
         resolutionStrategy {
             force("org.jetbrains.kotlin:kotlin-stdlib:1.7.20")
-            force("org.jetbrains.kotlin:kotlin-stdlib-common:1.7.20")
-            force("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.20")
-            force("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.20")
-            force("org.jetbrains.kotlin:kotlin-reflect:1.7.20")
+            force("com.google.code.findbugs:jsr305:3.0.2")
+            force("com.squareup:javawriter:2.5.0")
         }
     }
 }
