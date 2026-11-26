@@ -1,3 +1,4 @@
+import com.pl3.app.R
 package com.pl3.app.ui
 
 import android.os.Bundle
