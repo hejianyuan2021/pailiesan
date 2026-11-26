@@ -1,16 +1,13 @@
 package com.pl3.app.net
 import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
-
-
+import android.graphics.drawable.ColorDrawable
 
 class RemoteDataSource : DataSource {
     private val client = OkHttpClient.Builder()
         .connectTimeout(10, TimeUnit.SECONDS)
         .readTimeout(10, TimeUnit.SECONDS)
         .build()
-
     override suspend fun fetchHistory(): List<ColorDrawable> {
         val req = Request.Builder()
             .url("https://www.17500.cn/pl3/history.csv")
