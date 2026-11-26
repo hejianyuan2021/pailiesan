@@ -4,8 +4,8 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 
-// 终极保底空壳：移除原算法/绘图依赖，确保 CI 编译出包
-object StatsCalc {
-    fun calculate(): List<Any> = emptyList()
-    fun getDrawPlaceholder(): Drawable = ColorDrawable(Color.TRANSPARENT)
+// 保底空壳：移除原统计计算及绘图逻辑
+class StatsCalc {
+    fun getPlaceholder(): Drawable = ColorDrawable(Color.TRANSPARENT)
+    fun calc(): Any = Unit
 }
