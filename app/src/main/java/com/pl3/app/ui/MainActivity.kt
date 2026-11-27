@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
                     } else {
                         supportActionBar?.title = "排列三 · 推荐 ${recs.size}组"
                         tvResult.text = recs.joinToString("\n\n") {
-                            "${it.num}\n${it.reason}"
+                            "${it.num.toString()}\n${it.reason}"
                         }
                     }
                 }
