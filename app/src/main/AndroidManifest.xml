@@ -3,5 +3,5 @@
     <application
         android:allowBackup="true"
         android:label="排三算号"
-        android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
+        android:theme="@style/AppTheme"/>
 </manifest>
